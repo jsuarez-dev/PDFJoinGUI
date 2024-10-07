@@ -42,6 +42,7 @@ class MainWindow(QMainWindow):
         if not os.path.lexists(folder):
             msg = QErrorMessage()
             msg.showMessage("The Folder doesn't excist")
+            return 1;
 
         for file in os.listdir(folder):
             if file.endswith(".pdf"):
@@ -70,6 +71,7 @@ class MainWindow(QMainWindow):
         if not join_file:
             msg = QErrorMessage()
             msg.showMessage(f"file: {join_file} is not valid")
+            return 1;
 
         merger = PdfMerger()
 
